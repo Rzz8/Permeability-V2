@@ -1,0 +1,10 @@
+* {
+    padding: 150;
+    margin: 50;
+    font-family: "Josefin Sans", sans-serif;
+    box-sizing: border-box;
+  }
+
+.mainapp {
+    background-color: white;
+}
