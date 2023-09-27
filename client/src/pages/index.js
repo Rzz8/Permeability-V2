@@ -5,3 +5,4 @@ export { default as AddJob } from "./Addjob";
 export { default as DashboardLayout } from "./DashboardLayout";
 export { default as AllJobs } from "./AllJobs";
 export { default as Landing } from "./Landing";
+export { default as Profile } from "./Profile";

@@ -30,7 +30,6 @@ const DashboardLayout = () => {
     <DashboardContext.Provider value={{ user, logoutUser }}>
       <Wrapper>
         <main className="dashboard">
-        
           <div>
             <Navbar />
             <Sidebar />

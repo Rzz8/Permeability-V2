@@ -6,3 +6,12 @@ export const getCurrentUser = async (req, res) => {
   const userWithoutPassword = user.toJSON();
   res.status(StatusCodes.OK).json({ user: userWithoutPassword });
 };
+
+export const updateUser = async (req, res) => {
+  const newUser = { ...req.body };
+  delete newUser.password;
+
+  const updateUser = await User.findByIdAndUpdate(req.user.userId, newUser);
+
+  res.status(StatusCodes.OK).json({ msg: "update user" });
+};

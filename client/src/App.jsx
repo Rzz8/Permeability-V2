@@ -6,6 +6,7 @@ import {
   AddJob,
   AllJobs,
   Landing,
+  Profile,
 } from "./pages";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { action as LoginAction } from "./pages/Login";
@@ -14,6 +15,7 @@ import { action as AddJobAction } from "./pages/Addjob";
 import { loader as allJobsLoader } from "./pages/AllJobs";
 import { loader as DashboardLoader } from "./pages/DashboardLayout";
 import { action as DeleteJobAction } from "./pages/DeleteJob";
+import { action as PrfileAction } from "./pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,7 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <AddJob />, action: AddJobAction },
           { path: "all-jobs", element: <AllJobs />, loader: allJobsLoader },
+          { path: "profile", element: <Profile />, action: PrfileAction },
           { path: "delete-job/:id", action: DeleteJobAction },
         ],
       },
