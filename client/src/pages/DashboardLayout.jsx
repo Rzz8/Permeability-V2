@@ -23,16 +23,16 @@ const DashboardLayout = () => {
   const logoutUser = async () => {
     navigate("/");
     await customFetch.get("/auth/logout");
-    toast.success("You are now logged out.")
+    toast.success("You are now logged out.");
   };
 
   return (
     <DashboardContext.Provider value={{ user, logoutUser }}>
       <Wrapper>
         <main className="dashboard">
+          <Sidebar />
           <div>
             <Navbar />
-            <Sidebar />
             <div className="dashboard-page">
               <Outlet />
             </div>
