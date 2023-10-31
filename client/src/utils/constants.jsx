@@ -12,3 +12,14 @@ export const FORMATION_GROUP = [
     VALUE: "2",
   },
 ];
+
+export const JOB_SORT_BY = [
+  {
+    GROUP: "Newest",
+    VALUE: "newest",
+  },
+  {
+    GROUP: "Oldest",
+    VALUE: "oldest",
+  },
+];

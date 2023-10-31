@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from "react";
 import customFetch from "../utils/customFetch";
-import JobsContainer from "../components/JobsContainer";
+import { JobsContainer, SearchContainer } from "../components";
 import { useLoaderData } from "react-router-dom";
 
 const AllJobsContext = createContext();
@@ -18,6 +18,7 @@ const AllJobs = () => {
   const { data } = useLoaderData();
   return (
     <AllJobsContext.Provider value={{ data }}>
+      <SearchContainer />
       <JobsContainer />
     </AllJobsContext.Provider>
   );

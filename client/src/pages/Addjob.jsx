@@ -1,8 +1,7 @@
 import React from "react";
 import Axios from "axios";
 import { Form, redirect, useActionData } from "react-router-dom";
-import FormRow from "../components/FormRow";
-import FormRowSelect from "../components/FormRowSelect";
+import { FormRow, FormRowSelect } from "../components";
 import { extractNumbers } from "../utils/extractNumbers";
 import customFetch from "../utils/customFetch";
 import Wrapper from "../assets/wrappers/DashboardFormPage";
