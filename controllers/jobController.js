@@ -3,8 +3,23 @@ import { StatusCodes } from "http-status-codes";
 import mongoose from "mongoose";
 
 export const getAllJobs = async (req, res) => {
+  const { sort, FG } = req.query;
+
+  // find jobs that are created by the query user
   const queryObject = { createdBy: req.user.userId };
-  const jobs = await Job.find(queryObject);
+
+  const sortOptions = {
+    newest: "-createdAt",
+    oldest: "createdAt",
+  };
+
+  if (FG && FG !== "all") {
+    queryObject.FG = FG;
+  }
+
+  const sortKey = sortOptions[sort] || sortOptions.newest;
+
+  const jobs = await Job.find(queryObject).sort(sortKey);
 
   res.status(StatusCodes.OK).json({ jobs });
 };

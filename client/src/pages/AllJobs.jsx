@@ -6,8 +6,15 @@ import { useLoaderData } from "react-router-dom";
 const AllJobsContext = createContext();
 
 export const loader = async ({ request }) => {
+  console.log(request.url);
+  const params = Object.fromEntries([
+    ...new URL(request.url).searchParams.entries(),
+  ]);
+
+  console.log(params);
   try {
-    const { data } = await customFetch("/jobs");
+    const { data } = await customFetch("/jobs", { params });
+    console.log(data);
     return { data };
   } catch (error) {
     return error;

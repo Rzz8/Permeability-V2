@@ -1,6 +1,8 @@
 import React from "react";
 import { Form } from "react-router-dom";
 import Wrapper from "../assets/wrappers/Job";
+import dateConversion from "../utils/dateConversion";
+import getFormationGroupName from "../utils/getFormationGroupName";
 
 const Job = ({
   _id,
@@ -19,6 +21,7 @@ const Job = ({
   FLR,
   FG,
   PERM,
+  createdAt,
 }) => {
   return (
     <Wrapper>
@@ -37,8 +40,9 @@ const Job = ({
         Pason gas depth-corrected (%): {PG} <br></br>
         Fluid loss (bbl): {FL} <br></br>
         Fluid loss rate (bbl/min):{FLR} <br></br>
-        Formation group: {FG} <br></br>
+        Formation group: {getFormationGroupName(FG)} <br></br>
         Permeability (mD): {PERM} <br></br>
+        Created at: {dateConversion(createdAt)}
         <Form method="post" action={`../delete-job/${_id}`}>
           <button type="submit" className="btn delete-btn">
             Delete
