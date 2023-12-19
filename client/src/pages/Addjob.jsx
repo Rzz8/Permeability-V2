@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 import { Form, redirect, useActionData } from "react-router-dom";
-import { FormRow, FormRowSelect } from "../components";
+import { FormRow, FormRowSelect, AddJobSubmitBtn } from "../components";
 import { extractNumbers } from "../utils/extractNumbers";
 import customFetch from "../utils/customFetch";
 import Wrapper from "../assets/wrappers/DashboardFormPage";
 import SubmitBtn from "../components/SubmitBtn";
 import { FORMATION_GROUP } from "../utils/constants";
+
+// Exclude "all" in the formation group
+const filteredFormationGroup = FORMATION_GROUP.filter(
+  (item) => item.GROUP !== "All"
+);
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
@@ -131,10 +136,10 @@ const AddJob = () => {
           <FormRowSelect
             labelText="Formation group"
             name="FG"
-            list={FORMATION_GROUP}
+            list={filteredFormationGroup}
           />
 
-          <SubmitBtn formBtn />
+          <AddJobSubmitBtn formBtn />
         </div>
 
         <div className="result">
